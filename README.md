@@ -1,6 +1,6 @@
 # Solar Panel Light Tracker
 
-An Arduino-based solar panel positioning system that uses four LDRs and two servos to continuously orient a solar panel toward the brightest light source. Also measures panel input voltage and load current, and allows LED control via serial commands.
+An Arduino-based solar panel positioning system that uses four LDRs and two servos to continuously orient a solar panel toward the brightest light source. We also built an application to track the voltage and current (amps) in the circuit. Additionally, the system measures panel input voltage and load current, and allows LED control via serial commands.
 
 ---
 
@@ -18,9 +18,13 @@ An Arduino-based solar panel positioning system that uses four LDRs and two serv
   - Two servos (pins 9 & 8) pan and tilt the panel toward the brightest quadrant  
 
 - **Voltage & Current Monitoring**  
-  - Measures panel input voltage through a 30 kΩ/7.5 kΩ divider on A4  
-  - Reads load current from a 0.185 V/A sensor on A5 (with 2.5 V offset)  
+  - Measures panel input voltage through a 30 kΩ/7.5 kΩ divider on A4  
+  - Reads load current from a 0.185 V/A sensor on A5 (with 2.5 V offset)  
   - Reports real-time voltage & current in the Serial Monitor  
+
+- **Circuit Tracking Application**  
+  - Custom app logs voltage and amperage data over time  
+  - Provides simple graphs and alerts for out-of-range values  
 
 - **Serial-Controlled Status LED**  
   - Send `1` or `0` over Serial to turn the built-in LED (pin 13) ON/OFF  
@@ -32,7 +36,7 @@ An Arduino-based solar panel positioning system that uses four LDRs and two serv
 1. **Servos**  
    - Servo 1 → D9 (tilt)  
    - Servo 2 → D8 (pan)  
-   - Power both from 5 V & GND
+   - Power both from 5 V & GND
 
 2. **LDR Sensor Array**  
    - LDR1 → A0  
@@ -42,9 +46,9 @@ An Arduino-based solar panel positioning system that uses four LDRs and two serv
    - Each paired with a fixed resistor in a voltage divider to ground
 
 3. **Voltage Divider (Input Voltage Measurement)**  
-   - R1 = 30 kΩ → 5 V  
+   - R1 = 30 kΩ → 5 V  
    - Divider midpoint → A4  
-   - R2 = 7.5 kΩ → GND
+   - R2 = 7.5 kΩ → GND
 
 4. **Current Sensor (Load Current Measurement)**  
    - Sensor output → A5  
